@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TokenInput from './components/TokenInput';
+import RepoList from './components/RepoList';
 
 const App: React.FC = () => {
   const [token, setToken] = useState<string | null>(null);
@@ -20,9 +21,7 @@ const App: React.FC = () => {
       {!token ? (
         <TokenInput onTokenSet={handleTokenSet} />
       ) : (
-        <div>
-          <p>Your GitHub token is set. Now you can manage your repositories.</p>
-        </div>
+        <RepoList token={token} />
       )}
     </div>
   );
